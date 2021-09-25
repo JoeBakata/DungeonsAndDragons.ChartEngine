@@ -1,0 +1,8 @@
+﻿Bracelet;300;600
+Pin;300;600
+Brooch;700;1000
+Earring;700;1000
+Pendant;1100;1400
+Necklace;1100;1400
+Crown;1500;1800
+Sceptre;1500;1800

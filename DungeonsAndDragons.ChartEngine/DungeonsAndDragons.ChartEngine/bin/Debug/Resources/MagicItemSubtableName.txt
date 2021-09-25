@@ -1,0 +1,8 @@
+﻿A:Swords
+B:OtherWeapons
+C:Armor,Shields
+D:Potions
+E:Scrolls
+F:Rings
+G:Wands,Staves,Rods
+H:MiscellaneousMagic
