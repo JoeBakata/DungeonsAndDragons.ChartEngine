@@ -36,7 +36,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\GemValueData.txt" />
+    <Content Include="Resources\JewelryValueData.txt" />
+    <Content Include="Resources\MagicItemData.txt" />
+    <Content Include="Resources\MagicItemSubtableName.txt" />
+    <Content Include="Resources\MonetaryChartData.txt" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Charts\GetCharts.cs" />
     <Compile Include="Charts\Treasure\GemTreasure.cs" />
@@ -46,25 +52,8 @@
     <Compile Include="Charts\Treasure\MonetaryTreasure.cs" />
     <Compile Include="Charts\Treasure\GemValue.cs" />
     <Compile Include="Services\OpenFile.cs" />
-    <Compile Include="test.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="Utilities\Enum.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\GemValueData.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\JewelryValueData.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\MagicItemData.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\MagicItemSubtableName.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\MonetaryChartData.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
