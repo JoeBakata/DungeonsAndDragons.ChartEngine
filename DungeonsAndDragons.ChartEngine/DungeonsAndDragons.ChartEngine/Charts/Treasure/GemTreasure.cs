@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DungeonsAndDragons.ChartEngine.Utilities;
+﻿using DungeonsAndDragons.ChartEngine.Utilities;
 
 
 namespace DungeonsAndDragons.ChartEngine.Charts.Treasure

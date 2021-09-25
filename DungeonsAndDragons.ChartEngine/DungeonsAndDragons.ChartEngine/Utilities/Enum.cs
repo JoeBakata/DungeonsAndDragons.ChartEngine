@@ -1,5 +1,6 @@
 ﻿namespace DungeonsAndDragons.ChartEngine.Utilities
 {
+    #region Dice
     public enum Dice
     {
         D2 = 2,
@@ -14,7 +15,8 @@
         D100 = 100,
         DNull = 0
     }
-
+    #endregion Dice
+    #region MonsterTypes
     public enum MonsterTypes
     {
         A,
@@ -40,7 +42,9 @@
         U,
         V
     }
+    #endregion MonsterTypes
 
+    #region GemTypes
     public enum GemType
     {
         Quartz,
@@ -54,8 +58,10 @@
         Opal,
         Ruby
     }
+    #endregion GemTypes
 
-    public enum MonetaryTrasureTypes
+    #region MonetaryTreasureTypes
+    public enum MonetaryTreasureTypes
     {
         Copper,
         Silver,
@@ -65,7 +71,9 @@
         Jewelry,
         Gems
     }
+    #endregion MonetaryTreasureTypes
 
+    #region MagicItemTypes
     public enum MagicItemTypes
     {
         A = 20,
@@ -77,7 +85,9 @@
         G = 95,
         H = 100
     }
+    #endregion MagicItemTypes
 
+    #region JewelryTypes
     public enum JewelryType
     {
         Bracelet,
@@ -89,4 +99,5 @@
         Crown,
         Sceptre
     }
+    #endregion JewelryTypes
 }

@@ -1,25 +1,15 @@
 ﻿using System;
-using DungeonsAndDragons.ChartEngine.Utilities;
-using DungeonsAndDragons.ChartEngine.Charts.Treasure;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DungeonsAndDragons.ChartEngine
 {
     class Test
     {
-
-
         /// <summary>
         /// Display everything in monetary chart.
         /// </summary>
         public static void Main()
         {
             Charts.GetCharts FirstTest;
-
-
 
             FirstTest = new Charts.GetCharts();
 
