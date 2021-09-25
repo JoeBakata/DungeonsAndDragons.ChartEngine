@@ -23,3 +23,9 @@ C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAnd
 C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\obj\Debug\DungeonsAndDragons.ChartEngine.csproj.CoreCompileInputs.cache
 C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\obj\Debug\DungeonsAndDragons.ChartEngine.exe
 C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\obj\Debug\DungeonsAndDragons.ChartEngine.pdb
+C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\bin\Debug\Resources\GemValueData.txt
+C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\bin\Debug\Resources\JewelryValueData.txt
+C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\bin\Debug\Resources\MagicItemData.txt
+C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\bin\Debug\Resources\MagicItemSubtableName.txt
+C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\bin\Debug\Resources\MonetaryChartData.txt
+C:\Git\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\obj\Debug\DungeonsAndDragons.ChartEngine.csproj.AssemblyReference.cache
