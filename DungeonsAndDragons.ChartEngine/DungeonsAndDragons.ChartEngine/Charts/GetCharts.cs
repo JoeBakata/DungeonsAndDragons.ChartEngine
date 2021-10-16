@@ -18,8 +18,8 @@ namespace DungeonsAndDragons.ChartEngine.Charts
 
         public List<Treasure.GemValue> GemGPValueChart = new List<Treasure.GemValue>();//todo create a solution for this one. Use the jewelry value one from above as a template.
 
-        public Dictionary<MonsterTypes, Treasure.MagicItemValue> MagicItemValue =
-            new Dictionary<MonsterTypes, Treasure.MagicItemValue>();
+        public Dictionary<MonsterTypes, Treasure.MagicItemTreasure> MagicItemValue =
+            new Dictionary<MonsterTypes, Treasure.MagicItemTreasure>();
 
         public GetCharts() 
         {
@@ -64,22 +64,24 @@ namespace DungeonsAndDragons.ChartEngine.Charts
 
         public void GetMagicItemTreasureChart()
         {
-            List<string> magicItemValue = services.GetDataFile(@"C:\Users\Joseph\Desktop\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\DungeonsAndDragons.ChartEngine\Resources\MagicItemData.txt");
-            foreach (var item in magicItemValue)
+            List<string> magicItemTreasure = services.GetDataFile(@"Resources\MagicItemData.txt");
+            foreach (var item in magicItemTreasure)
             {
                 var magicItemData = item.Split(',');
                 var firstAddress = magicItemData[0].Split(':');
 
-                MonsterTypes monsterType = GetMonsterType(firstAddress[0]);
+                var monsterType = GetMonsterType(firstAddress[0]);
                 double percentageOfMagicalTreasure = double.Parse(firstAddress[1]);
                 bool isAny = magicItemData[1] == "1" ? true : false;
-                int amountOfAny = Int32.Parse(magicItemData[2].ToString());
+                int numberOfRolls = Int32.Parse(magicItemData[2].ToString());
                 string itemDetails = magicItemData[3].ToString();
                 bool exceptWeapons = magicItemData[3] == "1" ? true : false;
                 string magicItemsConpressed = magicItemData[4].ToString();
-                 MagicItemValue.Add(monsterType, new Treasure.MagicItemValue(percentageOfMagicalTreasure, isAny, amountOfAny, itemDetails));
-               // MagicItemValue.Add(monsterType, new Treasure.MagicItemTreasure(percentageOfMagicalTreasure, isAny, amountOfAny, exceptWeapons, magicItemsConpressed));
 
+                //MagicItemValue.Add(monsterType, new Treasure.MagicItemValue(percentageOfMagicalTreasure, isAny, amountOfAny, itemDetails));
+                // MagicItemValue.Add(monsterType, new Treasure.MagicItemTreasure(percentageOfMagicalTreasure, isAny, amountOfAny, exceptWeapons, magicItemsConpressed));
+                var temporary =  new Treasure.MagicItemTreasure(percentageOfMagicalTreasure, isAny, numberOfRolls, exceptWeapons, magicItemsConpressed);
+                MagicItemValue.Add(monsterType, temporary);
             }
 
         }

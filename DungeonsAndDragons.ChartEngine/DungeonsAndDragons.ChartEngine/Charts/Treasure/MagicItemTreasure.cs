@@ -8,6 +8,7 @@ namespace DungeonsAndDragons.ChartEngine.Charts.Treasure
 {
     public class MagicItemTreasure
     {
+        private Dictionary<string, string> weaponDictionary = new Dictionary<string, string>();
         #region Properties
         
         /// <summary>
@@ -28,7 +29,7 @@ namespace DungeonsAndDragons.ChartEngine.Charts.Treasure
         /// <summary>
         /// The number of magic items of type ANY.
         /// </summary>
-        public int NumberOfAnyMagicItems { get; set; }
+        //public int NumberOfAnyMagicItems { get; set; }
 
         /// <summary>
         /// Magic items that exclude weapons.
@@ -38,15 +39,14 @@ namespace DungeonsAndDragons.ChartEngine.Charts.Treasure
         /// <summary>
         /// 
         /// </summary>
-        public int NumberOfDice { get; set; }
+        public int NumberOfRolls { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         public int MaxRollValue { get; set; }
 
-        public Dictionary<MonsterTypes, List<string>> MagicItemTypes { get; set; }
-
+        public string MagicItemTypesFormatted { get; set; }
 
         #endregion Properties
 
@@ -57,31 +57,44 @@ namespace DungeonsAndDragons.ChartEngine.Charts.Treasure
         /// </summary>
         /// <param name="percent">A number between 01-100.</param>
         /// <param name="anyMagicItems">If you roll on the table to get ANY type of magic item. Some treasure does not allow ANY type.</param>
-        /// <param name="numberOfMagicItems">The Number of magic items in the treasure.</param>
+        /// <param name="numberOfRolls">The Number of magic items in the treasure.</param>
         /// <param name="exceptWeapons">This does not allow any weapons (swords, other weapons) to be found in the treasure. All other items are okay.</param>
         /// <param name="magicItemsCompressed"></param>
-        public MagicItemTreasure(double percent, bool anyMagicItems, int numberOfMagicItems, bool exceptWeapons, string magicItemsCompressed)//MagicItemTreasure constructor with arguements
+        public MagicItemTreasure(double percent, bool anyMagicItems, int numberOfRolls, bool exceptWeapons, string magicItemsCompressed)//MagicItemTreasure constructor with arguements
         {    //double percent, bool anyMagicItems, int numberOfMagicItems, bool exceptWeapons, string magicItemsCompressed.
+            GetWeaponType();
+            MagicItemTypesFormatted = string.Empty;
             Dice = Dice.D100;
             Percent = percent;
             AnyMagicItems = anyMagicItems;
-            NumberOfAnyMagicItems = numberOfMagicItems;
+            NumberOfRolls = numberOfRolls;
             ExceptWeapons = exceptWeapons;
             if (magicItemsCompressed != "nil")
             {
-            MagicItemTypes = DecompressedMagicItems(magicItemsCompressed);
+                var temp = DecompressedMagicItems(magicItemsCompressed);
+                foreach (var element in temp)
+                {
+                    if (element.Value[0].Contains("-"))
+                    {
+                        MagicItemTypesFormatted = $"{element.Value[0]} {element.Key}";
+                    }
+                    else 
+                    {
+                        MagicItemTypesFormatted = $"{MagicItemTypesFormatted} {element.Key}";
+                    }
+                }
             }
         }
 
         #region Private Methods
-        private Dictionary<MonsterTypes, List<string>> DecompressedMagicItems(string magicItemsCompressed)
+        private Dictionary<string, List<string>> DecompressedMagicItems(string magicItemsCompressed)
         {
-            Dictionary<MonsterTypes, List<string>> magicItemTypes = new Dictionary<MonsterTypes, List<string>>();
-            var magicItemsDecompressed = magicItemsCompressed.Split(':');
+            Dictionary<string, List<string>> magicItemTypes = new Dictionary<string, List<string>>();
+            var magicItemsDecompressed = magicItemsCompressed.Split('*');
             foreach (var item in magicItemsDecompressed)
             {
-                var magicItemMinMax = item.Split(',');
-                MonsterTypes itemTypes = GetMagicItemTypes(magicItemMinMax[0]);
+                var magicItemMinMax = item.Split(';');
+                string itemTypes = GetMagicItemTypes(magicItemMinMax[0]);
                 var MinMax = new List<string>();
                 MinMax.Add(magicItemMinMax[1]);
                 if (magicItemMinMax.Count() > 2)
@@ -93,10 +106,21 @@ namespace DungeonsAndDragons.ChartEngine.Charts.Treasure
             return magicItemTypes;
         }
 
-        private MonsterTypes GetMagicItemTypes(string magicItemTypes)
+        private string GetMagicItemTypes(string magicItemTypes)
         {
 
-            return (MonsterTypes)Enum.Parse(typeof(MonsterTypes), magicItemTypes);
+
+            return weaponDictionary[magicItemTypes];
+        }
+        private void GetWeaponType()
+        {
+            Services.OpenFile openFile = new Services.OpenFile();
+            List<string> weaponFile = openFile.GetDataFile(@"Resources\MagicItemSubtableName.txt");
+            foreach (var element in weaponFile)
+            {
+                var weaponPair = element.Split(':');
+                weaponDictionary.Add(weaponPair[0], weaponPair[1]);
+            }
         }
         #endregion Private Methods
     }

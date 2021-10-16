@@ -60,15 +60,13 @@ namespace DungeonsAndDragons.ChartEngine
             //    Console.WriteLine($" ---- ----");
             //}
 
-            // Display Magic Item chart.
+            //Display Magic Item chart.
             foreach (var item in FirstTest.MagicItemValue)
             {
                 Console.WriteLine($"monsterType {item.Key}");
                 Console.WriteLine($"dice {item.Value.Dice}");
-                Console.WriteLine($"magicItemTypes {item.Value.MagicItemTypes}");
-                Console.WriteLine($"minimumRollValue {item.Value.MinimumRollValue}");
-                Console.WriteLine($"maximumRollValue {item.Value.MaximumRollValue}");
-                Console.WriteLine($"magicItemSubtableName {item.Value.MagicItemSubtableName}");
+                Console.WriteLine($"numberOfRolls {item.Value.NumberOfRolls}");
+                Console.WriteLine($"magicItemTypes {item.Value.MagicItemTypesFormatted}");
                 Console.WriteLine($"--- -----");
             }
 
@@ -85,7 +83,7 @@ namespace DungeonsAndDragons.ChartEngine
             //        Console.WriteLine($"numberOfDice {money.NumberOfDice}");
             //        Console.WriteLine($"maxRollValue {money.MaxRollValue}");
             //        Console.WriteLine($"----  -----");
-            //    }                           
+            //    }
             //}
 
 

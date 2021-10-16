@@ -38,7 +38,7 @@ namespace DungeonsAndDragons.ChartEngine.Charts.Treasure
         /// <summary>
         /// This is the type of magic items. Could be sword, armor, potion, ring, etc.
         /// </summary>
-        public MonsterTypes MagicItemTypes {get; set;}
+        public string MagicItemTypes {get; set;}
 
         /// <summary>
         /// This is the minimum value that can be rolled. This needs more description, not sure what this is
@@ -92,9 +92,9 @@ namespace DungeonsAndDragons.ChartEngine.Charts.Treasure
         /// </summary>
         /// <param name="magicItemTypes"></param>
         /// <returns></returns>
-        private MonsterTypes GetMagicItemTypes(string magicItemTypes) //todo This is the GetMagicItemTypes Method? It has the private access modifier with return type of MonsterTypes.
+        private string GetMagicItemTypes(string magicItemTypes) //todo This is the GetMagicItemTypes Method? It has the private access modifier with return type of MonsterTypes.
         {
-            return (MonsterTypes)Enum.Parse(typeof(MonsterTypes), magicItemTypes);
+            return (string)Enum.Parse(typeof(string), magicItemTypes);
         }
         #endregion Private Methods
     }
